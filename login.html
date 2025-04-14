@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>تسجيل الدخول</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    const users = [
+      {
+        username: "أحمد خالد",
+        email: "ahmad@example.com",
+        password: "Ahmad@123",
+        avatar: "https://i.pravatar.cc/150?img=12"
+      },
+      {
+        username: "سارة محمود",
+        email: "sara@example.com",
+        password: "Sara@456",
+        avatar: "https://i.pravatar.cc/150?img=47"
+      }
+    ];
+
+    function loginUser(event) {
+      event.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const user = users.find(u => u.email === email && u.password === password);
+
+      if (user) {
+        localStorage.setItem("loggedUser", JSON.stringify(user));
+        window.location.href = "profile.html";
+      } else {
+        alert("بيانات الدخول غير صحيحة.");
+      }
+    }
+  </script>
+</head>
+<body>
+  <header class="navbar">
+    <h1 class="logo">OHI</h1>
+    <nav>
+	  <a href="index.html">الرئيسية</a>
+      <a href="contact.html">من نحن</a>
+      <a href="goals.html">أهداف التنمية</a>
+      <a href="action.html">بادر بالفعل</a>
+      <a href="stories.html">قصص</a>
+      <a href="history.html">تاريخنا</a>
+      <a href="media.html">المركز الإعلامي</a>
+    </nav>
+    <div>
+      <a href="login.html" class="btn">دخول</a>
+      <a href="register.html" class="btn secondary">تسجيل</a>
+    </div>
+  </header>
+  <div class="auth-container">
+    <h2>تسجيل الدخول</h2>
+    <form onsubmit="loginUser(event)">
+      <label for="email">البريد الإلكتروني:</label>
+      <input type="email" id="email" required />
+      <label for="password">كلمة المرور:</label>
+      <input type="password" id="password" required />
+      <button type="submit" class="btn">دخول</button>
+    </form>
+  </div>
+</body>
+</html>
