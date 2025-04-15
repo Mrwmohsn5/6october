@@ -6,20 +6,14 @@
   <link rel="stylesheet" href="style.css" />
   <script>
     function validateForm() {
-      const username = document.getElementById('username').value;
+      
       const pass = document.getElementById('password').value;
       const confirm = document.getElementById('confirm').value;
-
+      const username = document.getElementById('username').value;
       const usernameRegex = /^[^0-9]+$/;
       const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
 
-      if (!usernameRegex.test(username)) {
-        alert("الاسم الكامل يجب ألا يحتوي على أرقام.");
-        document.getElementById('username').focus();
-        return false;
-      }
-
-      if (!passwordRegex.test(pass)) {
+            if (!passwordRegex.test(pass)) {
         alert("كلمة المرور يجب أن تحتوي على 8 أحرف على الأقل، وحرف كبير، ورقم، ورمز خاص.");
         document.getElementById('password').focus();
         return false;
@@ -32,6 +26,11 @@
       }
       return true;
     }
+    if (!passwordRegex.test(pass)) {
+        alert("كلمة المرور يجب أن تحتوي على 8 أحرف على الأقل، وحرف كبير، ورقم، ورمز خاص.");
+        document.getElementById('password').focus();
+        return false;
+      }
   </script>
 </head>
 <body>
