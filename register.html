@@ -36,7 +36,23 @@
     }
 
     return true;
-}  </script>
+} 
+
+  <script>
+    function تحقق_قوة_كلمة_المرور(كلمة_المرور) {
+      // ... (كود جافاسكريبت من الأعلى) ...
+    }
+
+    const passwordInput = document.getElementById("password");
+    const strengthDisplay = document.getElementById("passwordStrength");
+
+    passwordInput.addEventListener("input", function() {
+      const كلمة_المرور = passwordInput.value;
+      const قوة = تحقق_قوة_كلمة_المرور(كلمة_المرور);
+      strengthDisplay.textContent = `قوة كلمة المرور: ${قوة}`;
+      // يمكنك هنا إضافة تنسيقات CSS بناءً على قوة كلمة المرور (مثل تغيير لون النص).
+    });
+  </script>
 </head>
 <body>
   <header class="navbar">
